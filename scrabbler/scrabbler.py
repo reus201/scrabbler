@@ -107,8 +107,11 @@ class Game:
             self.moves = across_moves + down_moves
 
         self.moves.sort(key=lambda move_: move_.score, reverse=True)
-        for move in self.moves[0:num]:
-            print(move)
+        
+        moves_list = []
+        for move in self.moves[:num]:
+            moves_list.append((move.word, move.direction, move.start_square, move.score))
+        return moves_list
 
     def show(self):
         """prints the board to terminal"""
